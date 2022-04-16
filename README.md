@@ -3,12 +3,17 @@
 Pixels is a game about pixel simulation made using Go and  
 the Go Binding of Raylib 4.0;  
 
+![image](https://user-images.githubusercontent.com/67066397/163684623-6ec27745-795c-45df-b6e0-13a977666308.png)
+![image](https://user-images.githubusercontent.com/67066397/163684641-25f7dcdc-1527-4589-9d87-adacf40b513f.png)
+![image](https://user-images.githubusercontent.com/67066397/163684666-5726fd25-e7b5-449a-adff-fea8a2ee8086.png)
+
+
 # How the game works
 
 You have a canvas. You drop one pixel using the right mouse button,  
 or multiple holding the left mouse button. You can change colors using  
 the scroll wheel, and clear the screen using the delete key.  
-Each color attacks other colors. If a pixel is not being  
+Each color hunts nearest enemies that have other colors. If a pixel is not being  
 fed (eaten some other pixels) in 10 seconds it will die.
 
 To get all the keybinds listed, Press X.  
