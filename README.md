@@ -1,6 +1,6 @@
 # Pixels
 
-Pixels is a game about pixel simulation made using Go and  
+Pixels is a game about pixel simulation made using Go and
 the Go Binding of Raylib 4.0;  
 
 # How the game works
@@ -30,12 +30,12 @@ Must have a 64-bit operating system (currently supporting only Windows 10 and 11
 # For developers
 
 To build this, just install Go (1.18 or later)  
-go into the game directory, open a terminal,
-and type in .\run.bat to run or .\build.bat
+go into the game directory, open a terminal,  
+and type in .\run.bat to run or .\build.bat  
 to build the game in \build\ directory.
 
 # Many thanks
 
-Raylib: https://www.raylib.com/
-Raylib discord: https://discord.com/invite/raylib
+Raylib: https://www.raylib.com/  
+Raylib discord: https://discord.com/invite/raylib  
 Raylib reddit: https://www.reddit.com/r/raylib/
