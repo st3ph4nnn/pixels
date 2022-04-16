@@ -41,12 +41,6 @@ to build the game in \build\ directory.
 
 # Many thanks
 
-<<<<<<< HEAD
 Raylib: https://www.raylib.com/  
 Raylib discord: https://discord.com/invite/raylib  
 Raylib reddit: https://www.reddit.com/r/raylib/
-=======
-Raylib: https://www.raylib.com/
-Raylib discord: https://discord.com/invite/raylib
-Raylib reddit: https://www.reddit.com/r/raylib/
->>>>>>> cc7efb486c0dc077f9b29529b689fb0610d1b19b
