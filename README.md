@@ -34,7 +34,7 @@ Must have a 64-bit operating system (currently supporting only Windows 10 and 11
 
 # Releases
 
-The recommended version is the latest one released in the releases tab (sidebar)
+The recommended version is the latest one released in the releases tab (sidebar)  
 If you want to play the latest version available (beta, bugs may happen), check  
 the build folder in the repository.
 
