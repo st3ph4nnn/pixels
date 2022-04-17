@@ -32,7 +32,7 @@ Minimum Cores: 2
 Minimum Threads: 4  
 Must have a 64-bit operating system (currently supporting only Windows 10 and 11)
 
-# Releasese
+# Releases
 
 The recommended version is the latest one released in the releases tab (sidebar)
 If you want to play the latest version available (beta, bugs may happen), check  
