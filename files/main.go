@@ -31,9 +31,9 @@ func modify(width, height int32) {
 				pos := rl.GetMousePosition()
 
 				if len(pixels) == 0 {
-					pixels = append(pixels, pixel{x: float32(pos.X), y: float32(pos.Y), id: 1, col: color, alpha: 1.0, alive: 10000000})
+					pixels = append(pixels, pixel{x: float32(pos.X), y: float32(pos.Y), id: 1, col: color, alpha: 1.0})
 				} else {
-					pixels = append(pixels, pixel{x: float32(pos.X), y: float32(pos.Y), id: pixels[len(pixels)-1].id + 1, col: color, alpha: 1.0, alive: 10000000})
+					pixels = append(pixels, pixel{x: float32(pos.X), y: float32(pos.Y), id: pixels[len(pixels)-1].id + 1, col: color, alpha: 1.0})
 				}
 			case key == 4:
 				color = get_random_color()
@@ -52,15 +52,12 @@ func modify(width, height int32) {
 				continue
 			}
 
-			pixels[i].alive -= 1
-
-			if pixels[i].collides() || pixels[i].alive == 0 {
+			if pixels[i].collides() {
 				pixels = append(pixels[:i], pixels[i+1:]...)
 				break
 			}
 
 			if pixels[i].get_nearest() {
-				pixels[i].alive = 10000000
 				if get_random(0, 1) == 1 {
 					if get_random(0, 1) == 1 {
 						if get_random(0, 1) == 1 {
@@ -103,7 +100,7 @@ func modify(width, height int32) {
 func main() {
 	rl.SetConfigFlags(rl.FlagWindowAlwaysRun | rl.FlagMsaa4xHint | rl.FlagWindowMaximized)
 	rl.InitWindow(0, 0, "pixels")
-	//rl.ToggleFullscreen()
+	rl.ToggleFullscreen()
 	rl.SetTargetFPS(244)
 
 	width := int32(rl.GetScreenWidth())
@@ -133,6 +130,8 @@ func main() {
 				key = 5
 			case rl.IsKeyPressed(rl.KeyX):
 				info = !info
+			case rl.IsKeyPressed(rl.KeyF11):
+				rl.ToggleFullscreen()
 			default:
 				input = false
 				key = 0
@@ -151,6 +150,7 @@ func main() {
 		if info {
 			rl.DrawRectangle(0, 0, width, height, rl.ColorAlpha(rl.Black, 0.5))
 
+			rl.DrawText("F11 - fullscreen (may cause issues)", width/2-rl.MeasureText("F11 - fullscreen (may cause issues)", 40)/2, height/2-250, 40, rl.Black)
 			rl.DrawText("ESC - exit", width/2-rl.MeasureText("ESC - exit", 40)/2, height/2-200, 40, rl.Black)
 			rl.DrawText("DELETE - clear screen", width/2-rl.MeasureText("DELETE - clear screen", 40)/2, height/2-150, 40, rl.Black)
 			rl.DrawText("LMB - drop 1 pixel", width/2-rl.MeasureText("LMB - drop 1 pixel", 40)/2, height/2-100, 40, rl.Black)

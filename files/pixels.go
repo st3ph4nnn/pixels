@@ -44,7 +44,7 @@ func (p *pixel) change_y(y float32) {
 
 func (p *pixel) collides() bool {
 	for i := range pixels {
-		if collision_check(pixels[i].x, p.x, pixels[i].y, p.y) && pixels[i].id != p.id && pixels[i].col != p.col {
+		if pixels[i].id != p.id && pixels[i].col != p.col && collision_check(pixels[i].x, p.x, pixels[i].y, p.y) {
 			return true
 		}
 	}
