@@ -39,10 +39,49 @@ the build folder in the repository.
 
 # For developers
 
-To build this, just install Go (1.18 or later)  
-go into the game directory, open a terminal,  
-and type in .\run.bat to run or .\build.bat  
-to build the game in \build\ directory.
+## Windows
+
+You will need:
+
+- Go: https://go.dev/dl/  
+- MinGW w64devkit: https://github.com/skeeto/w64devkit/releases/download/v1.12.0/w64devkit-1.12.0.zip (You need to add it to path)
+ 
+After that, download the project and extract it somewhere  
+Open a terminal in the build folder.  
+There are two args you **must** specify.  
+1. OS (LINUX, WINDOWS) = the os you want to build to (you can cross-compile)
+2. RUN (RUN, BUILD) = either RUN or BUILD the game
+
+Use those with the **mingw32-make.exe** like this:
+**mingw32-make.exe OS=WINDOWS RUN=RUN**  
+
+If you build, it will either show up in the windows folder.
+
+## Linux
+
+You will need:
+
+- Go
+- g++
+
+### Ubuntu-based distributions:
+
+**sudo apt-get install g++ golang-go libgl1-mesa-dev libxi-dev libxcursor-dev libxrandr-dev libxinerama-dev**
+
+### Redhat-based distributions:
+
+**sudo dnf install g++ golang-go mesa-libGL-devel libXi-devel libXcursor-devel libXrandr-devel libXinerama-devel**
+
+After that, download and extract the project somewhere  
+Open a terminal in the build folder.  
+There are two args you **must** specify.  
+1. OS (LINUX, WINDOWS) = the os you want to build to (you can cross-compile)
+2. RUN (RUN, BUILD) = either RUN or BUILD the game
+
+Use those with the **make** like this:
+**make OS=LINUX RUN=RUN**  
+
+If you build, it will show up in the linux folder.
 
 # Many thanks
 
