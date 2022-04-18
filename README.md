@@ -26,11 +26,16 @@ and a rectangle colored in the current pixel color.
 
 Even though the game is multi-threaded and somewhat optimized,  
 the game still needs a decent CPU to run without issues.   
-Currently tested on an i3 that is completely dogshit  
-and there is few performance issues.  
+Currently tested on an i3 that is completely dogshit and there were few performance issues.  
 Minimum Cores: 2  
 Minimum Threads: 4  
 Must have a 64-bit operating system (currently supporting only Windows 10 and 11)
+
+# Releases
+
+The recommended version is the latest one released in the releases tab (sidebar)  
+If you want to play the latest version available (beta, bugs may happen), check  
+the build folder in the repository.
 
 # For developers
 
