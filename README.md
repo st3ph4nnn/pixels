@@ -61,8 +61,8 @@ If you build, it will either show up in the windows folder.
 
 You will need:
 
-- Go
-- g++
+- Go: golang-go in apt and dnf
+- g++: g++ in apt and dnf
 
 ### Ubuntu-based distributions:
 
