@@ -15,7 +15,7 @@ func get_random_float(min, max float32) float32 {
 }
 
 func get_random_color() rl.Color {
-	col := get_random(1, 6)
+	col := get_random(1, 10)
 
 	switch col {
 	case 1:
@@ -30,6 +30,14 @@ func get_random_color() rl.Color {
 		return rl.DarkGreen
 	case 6:
 		return rl.Purple
+	case 7:
+		return rl.Yellow
+	case 8:
+		return rl.Lime
+	case 9:
+		return rl.DarkBlue
+	case 10:
+		return rl.Orange
 	}
 
 	return rl.Black
