@@ -49,7 +49,8 @@ You will need:
 After that, download the project and extract it somewhere  
 Open a terminal in the build folder.  
 There are two args you **must** specify.  
-1. OS (LINUX, WINDOWS) = the os you want to build to (you can cross-compile)
+1. OS (LINUX, WINDOWS) = the os you want to build to
+WARNING! You cannot cross-compile, you have to build for your OS.
 2. RUN (RUN, BUILD) = either RUN or BUILD the game
 
 Use those with the **mingw32-make.exe** like this:
@@ -75,7 +76,8 @@ You will need:
 After that, download and extract the project somewhere  
 Open a terminal in the build folder.  
 There are two args you **must** specify.  
-1. OS (LINUX, WINDOWS) = the os you want to build to (you can cross-compile)
+1. OS (LINUX, WINDOWS) = the os you want to build to 
+WARNING! You cannot cross-compile, you have to build for your OS.
 2. RUN (RUN, BUILD) = either RUN or BUILD the game
 
 Use those with the **make** like this:

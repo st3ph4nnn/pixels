@@ -1,8 +1,8 @@
 package main
 
 import (
+	"fmt"
 	"math/rand"
-	"strconv"
 	"time"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
@@ -12,6 +12,7 @@ var pixels []pixel
 var color rl.Color = rl.Black
 var close = false
 
+var speed int32 = 200
 var stop = false
 var key int32 = 0
 var input bool = false
@@ -61,15 +62,15 @@ func modify(width, height int32) {
 				if get_random(0, 1) == 1 {
 					if get_random(0, 1) == 1 {
 						if get_random(0, 1) == 1 {
-							pixels[i].change_x(delta_frame_time * 100)
+							pixels[i].change_x(delta_frame_time * float32(speed))
 						} else {
-							pixels[i].change_x(-(delta_frame_time * 100))
+							pixels[i].change_x(-(delta_frame_time * float32(speed)))
 						}
 					} else {
 						if get_random(0, 1) == 1 {
-							pixels[i].change_y(delta_frame_time * 100)
+							pixels[i].change_y(delta_frame_time * float32(speed))
 						} else {
-							pixels[i].change_y(-(delta_frame_time * 100))
+							pixels[i].change_y(-(delta_frame_time * float32(speed)))
 						}
 					}
 				} else {
@@ -78,15 +79,15 @@ func modify(width, height int32) {
 			} else {
 				if get_random(0, 1) == 1 {
 					if get_random(0, 1) == 1 {
-						pixels[i].change_x(delta_frame_time * 100)
+						pixels[i].change_x(delta_frame_time * float32(speed))
 					} else {
-						pixels[i].change_x(-(delta_frame_time * 100))
+						pixels[i].change_x(-(delta_frame_time * float32(speed)))
 					}
 				} else {
 					if get_random(0, 1) == 1 {
-						pixels[i].change_y(delta_frame_time * 100)
+						pixels[i].change_y(delta_frame_time * float32(speed))
 					} else {
-						pixels[i].change_y(-(delta_frame_time * 100))
+						pixels[i].change_y(-(delta_frame_time * float32(speed)))
 					}
 				}
 			}
@@ -130,8 +131,32 @@ func main() {
 				key = 5
 			case rl.IsKeyPressed(rl.KeyX):
 				info = !info
+				input = false
+				key = 0
 			case rl.IsKeyPressed(rl.KeyF11):
 				rl.ToggleFullscreen()
+				input = false
+				key = 0
+			case rl.IsKeyDown(rl.KeyW):
+				input = false
+				key = 0
+				speed += 25
+				if speed > 1000 {
+					speed = 1000
+				}
+				if speed < 0 {
+					speed = 0
+				}
+			case rl.IsKeyDown(rl.KeyS):
+				input = false
+				key = 0
+				speed -= 25
+				if speed > 1000 {
+					speed = 1000
+				}
+				if speed < 0 {
+					speed = 0
+				}
 			default:
 				input = false
 				key = 0
@@ -143,12 +168,13 @@ func main() {
 			rl.DrawRectangleLines(int32(pixel.x), int32(pixel.y), 15, 15, rl.ColorAlpha(rl.Black, pixel.alpha))
 		}
 
-		rl.DrawText(strconv.FormatInt(int64(len(pixels)), 10), 30, 60, 50, rl.SkyBlue)
-		rl.DrawRectangle(30, 120, 50, 50, color)
-		rl.DrawRectangleLines(29, 119, 51, 51, rl.Black)
+		rl.DrawText(fmt.Sprintf("pixels: %d", len(pixels)), 30, 60, 30, rl.DarkBlue)
+		rl.DrawText(fmt.Sprintf("speed: %d", speed), 30, 100, 30, rl.DarkPurple)
+		rl.DrawRectangle(30, 140, 50, 50, color)
+		rl.DrawRectangleLines(29, 139, 51, 51, rl.Black)
 
 		if info {
-			rl.DrawRectangle(0, 0, width, height, rl.ColorAlpha(rl.Black, 0.5))
+			rl.DrawRectangle(0, 0, width, height, rl.ColorAlpha(rl.Black, 0.15))
 
 			rl.DrawText("F11 - fullscreen (may cause issues)", width/2-rl.MeasureText("F11 - fullscreen (may cause issues)", 40)/2, height/2-250, 40, rl.Black)
 			rl.DrawText("ESC - exit", width/2-rl.MeasureText("ESC - exit", 40)/2, height/2-200, 40, rl.Black)
@@ -156,9 +182,10 @@ func main() {
 			rl.DrawText("LMB - drop 1 pixel", width/2-rl.MeasureText("LMB - drop 1 pixel", 40)/2, height/2-100, 40, rl.Black)
 			rl.DrawText("RMB (hold) - drop multiple pixels", width/2-rl.MeasureText("RMB (hold) - drop multiple pixels", 40)/2, height/2-50, 40, rl.Black)
 			rl.DrawText("SCROLL - change pixel color", width/2-rl.MeasureText("SCROLL - change pixel color", 40)/2, height/2, 40, rl.Black)
-			rl.DrawText("(press X to hide)", width/2-rl.MeasureText("(press X to hide)", 60)/2, height/2+125, 60, rl.Black)
+			rl.DrawText("W - increase speed, S - decrease speed", width/2-rl.MeasureText("W - increase speed, S - decrease speed", 40)/2, height/2+50, 40, rl.Black)
+			rl.DrawText("Press X to hide", width/2-rl.MeasureText("Press X to hide", 60)/2, height/2+155, 60, rl.Black)
 
-			rl.DrawText("pixels - made by stephan", width/2-int32(rl.MeasureText("pixels - made by stephan", 60))/2, height-100, 60, rl.White)
+			rl.DrawText("pixels - made by stephan", width/2-int32(rl.MeasureText("pixels - made by stephan", 60))/2, height-100, 60, rl.Red)
 		}
 
 		rl.DrawFPS(30, 30)
